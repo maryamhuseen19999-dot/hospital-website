@@ -1,0 +1,460 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --primary: #087e8b;
+    --primary-dark: #075b68;
+    --secondary: #35c6bd;
+    --navy: #102d46;
+    --light: #f2f9fb;
+    --white: #ffffff;
+    --text: #263b4d;
+    --muted: #718596;
+    --shadow: 0 10px 30px rgba(16, 45, 70, 0.09);
+    --radius: 22px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cairo', Tahoma, Arial, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* شريط التنقل */
+
+header {
+    width: 100%;
+    background: var(--white);
+    box-shadow: 0 3px 18px rgba(0,0,0,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    padding: 12px 20px;
+}
+
+nav a {
+    color: var(--navy);
+    font-size: 16px;
+    font-weight: 700;
+    transition: 0.3s;
+    position: relative;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: var(--secondary);
+    bottom: -7px;
+    right: 0;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* الصفحة الرئيسية */
+
+.hero {
+    min-height: 470px;
+    padding: 90px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(53,198,189,0.35), transparent 30%),
+        linear-gradient(135deg, #075b68, #087e8b, #102d46);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 35px solid rgba(255,255,255,0.08);
+    border-radius: 50%;
+    top: -120px;
+    left: -70px;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 6vw, 65px);
+    font-weight: 900;
+    margin-bottom: 12px;
+    animation: fadeDown 1s ease;
+}
+
+.hero p {
+    font-size: 21px;
+    margin-bottom: 30px;
+    color: #e5ffff;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--secondary);
+    color: var(--navy);
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 800;
+    transition: 0.3s;
+    border: none;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+/* الأقسام العامة */
+
+#about,
+#departments {
+    width: 90%;
+    max-width: 1250px;
+    margin: 75px auto;
+    text-align: center;
+}
+
+#about h2,
+#departments h2 {
+    color: var(--navy);
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-weight: 900;
+}
+
+#about p,
+#departments > p {
+    color: var(--muted);
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* كروت الأقسام */
+
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.department-card {
+    background: white;
+    padding: 30px 22px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid #e6f0f3;
+    transition: 0.35s;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.department-card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 18px 40px rgba(8,126,139,0.16);
+    border-color: var(--secondary);
+}
+.department-card .department-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.department-card h3 {
+    color: var(--primary-dark);
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.department-card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.department-card a {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 800;
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: 3px;
+}
+
+/* صفحات الأقسام */
+
+.department-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 45px auto 80px;
+}
+
+.department-page > .btn {
+    margin-bottom: 25px;
+}
+
+.department-content {
+    background: white;
+    padding: 40px;
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    min-height: 300px;
+    animation: fadeUp 0.8s ease;
+}
+
+.department-content h1 {
+    color: var(--primary-dark);
+    font-size: 34px;
+    margin-bottom: 12px;
+    border-right: 5px solid var(--secondary);
+    padding-right: 15px;
+}
+
+.department-content > p {
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+/* تفاصيل الأمراض */
+
+#conditionsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.condition-card {
+    background: #f7fbfc;
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid #e0eef1;
+    transition: 0.3s;
+    text-align: right;
+}
+
+.condition-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary);
+    box-shadow: var(--shadow);
+}
+
+.condition-card h2,
+.condition-card h3 {
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+}
+
+.condition-card p {
+    color: var(--text);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.condition-card ul {
+    padding-right: 22px;
+    color: var(--text);
+}
+
+/* البحث */
+.search-box {
+    width: 100%;
+    max-width: 550px;
+    margin: 25px auto;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #d9eaed;
+    border-radius: 30px;
+    outline: none;
+    font-family: inherit;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(8,126,139,0.1);
+}
+
+/* الفوتر */
+
+footer {
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    margin-top: 60px;
+}
+
+footer p {
+    font-size: 15px;
+}
+
+/* الحركات */
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* التوافق مع الشاشات المتوسطة */
+
+@media (max-width: 900px) {
+    .departments-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #conditionsContainer {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        gap: 20px;
+    }
+}
+
+/* التوافق مع الموبايل */
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    nav {
+        gap: 12px;
+        padding: 13px 8px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 370px;
+        padding: 65px 15px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    #about,
+    #departments {
+        width: 94%;
+        margin: 45px auto;
+    }
+
+    #about h2,
+    #departments h2 {
+        font-size: 25px;
+    }
+
+    .departments-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .department-card {
+        padding: 25px 18px;
+    }
+
+    .department-page {
+        width: 94%;
+        margin: 25px auto 50px;
+    }
+
+    .department-content {
+        padding: 22px 15px;
+           .btn {
+        padding: 10px 22px;
+        font-size: 14px;
+    }
+}
+
+/* الشاشات الصغيرة جدا */
+
+@media (max-width: 350px) {
+    nav {
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .department-content h1 {
+        font-size: 22px;
+    }
+}
+}
